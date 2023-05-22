@@ -8,4 +8,9 @@ const app = createApp(App)
 
 app.use(router)
 
-app.mount('#app')
+managerWebpack: (config, options) => {
+    options.cache.set = () => Promise.resolve();
+    return config;
+},
+
+    app.mount('#app')
